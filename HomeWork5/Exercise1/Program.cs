@@ -11,16 +11,42 @@ namespace Exercise1
         public static void Main(string[] args)
         {
             int[,] A = FillMatrix(3, 3);
+            Console.WriteLine("Матрицы А: ");
+            PrintMatrix(A);
+
+            int[,] B = FillMatrix(3, 3);
+            Console.WriteLine("Матрицы B: ");
+            PrintMatrix(B);
+
+            Console.WriteLine("Умножение А на 3");
+            PrintMatrix(MultiplyMatrix(A, 3));
 
             Console.WriteLine("Матрицы А: ");
             PrintMatrix(A);
 
-            int[,] B = FillMatrix(3, 4);
             Console.WriteLine("Матрицы B: ");
             PrintMatrix(B);
 
-            Console.WriteLine("Сложение матриц А и В: ");
+            Console.WriteLine("Сложение А и В: ");
             PrintMatrix(SumMatrix(A, B));
+
+            Console.WriteLine("Матрицы А: ");
+            PrintMatrix(A);
+
+            Console.WriteLine("Матрицы B: ");
+            PrintMatrix(B);
+
+            Console.WriteLine("Вычитание А и В: ");
+            PrintMatrix(SubMatrix(A, B));
+
+            Console.WriteLine("Матрицы А: ");
+            PrintMatrix(A);
+
+            Console.WriteLine("Матрицы B: ");
+            PrintMatrix(B);
+
+            Console.WriteLine("Умножение А на В");
+            PrintMatrix(MultiplyMatrix(A, B));
 
             Console.WriteLine("Матрицы А: ");
             PrintMatrix(A);
@@ -66,7 +92,7 @@ namespace Exercise1
                 {
                     for (int j = 0; j < column; j++)
                     {
-                        Console.Write($"{matrix[i, j],3}");
+                        Console.Write($"{matrix[i, j],4}");
                     }
 
                     Console.WriteLine();
@@ -80,7 +106,7 @@ namespace Exercise1
         /// <param name="matrixA">Входная матрица</param>
         /// <param name="n">Число на которое будет происходить умножение</param>
         /// <returns>Возвращает новую матрицу</returns>
-        public static int[,] multiplyMatrix(int[,] matrixA, int n)
+        public static int[,] MultiplyMatrix(int[,] matrixA, int n)
         {
             int row = matrixA.GetLength(0);
             int column = matrixA.GetLength(1);
@@ -106,6 +132,29 @@ namespace Exercise1
         /// <returns>Возвращает новую матрицу. Возращает null, если размеры матриц заданы неправильно</returns>
         public static int[,] SumMatrix(int[,] matrixA, int[,] matrixB)
         {
+            return SumOrSubMatrix(matrixA, matrixB, true);
+        }
+
+        /// <summary>
+        /// Метод, который находит разность двух матриц
+        /// </summary>
+        /// <param name="matrixA">Матрица из которой вычитают</param>
+        /// <param name="matrixB">Вычитаемая матрица</param>
+        /// <returns>Возращает новую матрицу. Возращает null, если размеры матриц заданы неправильно</returns>
+        public static int[,] SubMatrix(int[,] matrixA, int[,] matrixB)
+        {
+            return SumOrSubMatrix(matrixA, matrixB, false);
+        }
+
+        /// <summary>
+        /// Производит вычитание или сложение над матрицами
+        /// </summary>
+        /// <param name="matrixA">Первая матрица</param>
+        /// <param name="matrixB">Вторая матрица</param>
+        /// <param name="isSum">True - сложение, False - вычитание</param>
+        /// <returns>Возращает новую матрицу. Возращает null, если размеры матриц заданы неправильно</returns>
+        private static int[,] SumOrSubMatrix (int[,] matrixA, int[,] matrixB, bool isSum)
+        {
             int row1 = matrixA.GetLength(0);
             int row2 = matrixB.GetLength(0);
             int column1 = matrixA.GetLength(1);
@@ -119,16 +168,48 @@ namespace Exercise1
                 {
                     for (int j = 0; j < column1; j++)
                     {
-                        result[i, j] = matrixA[i, j] + matrixB[i, j];
+                        result[i, j] = matrixA[i, j] + (isSum ? 1: -1) * matrixB[i, j];
                     }
                 }
 
                 return result;
             }
-            else
+
+            return null;
+        }
+
+        /// <summary>
+        /// Метод, который умножает две матрицы
+        /// </summary>
+        /// <param name="matrixA">Первая матрица</param>
+        /// <param name="matrixB">Вторая матрица</param>
+        /// <returns>Возвращает новую матрицу. Возращает null, если размеры матриц заданы неправильно</returns>
+        public static int[,] MultiplyMatrix(int[,] matrixA, int[,] matrixB)
+        {
+            int row1 = matrixA.GetLength(0);
+            int row2 = matrixB.GetLength(0);
+            int column1 = matrixA.GetLength(1);
+            int column2 = matrixA.GetLength(1);
+
+            if (column1 == row2)
             {
-                return null;
+                int[,] result = new int[row1, column2];
+
+                for (int i = 0; i < row1; i++)
+                {
+                    for (int j = 0; j < column2; j++)
+                    {
+                        for (int k = 0; k < column1; k++)
+                        {
+                            result[i, j] += matrixA[i, k] * matrixB[k, j];
+                        }
+                    }
+                }
+
+                return result;
             }
+            
+            return null;
         }
     }
 }
