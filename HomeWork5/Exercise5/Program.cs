@@ -10,11 +10,10 @@ namespace Exercise5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(FunAckerman(3 , 5));
         }
 
         /// <summary>
-        /// Этот метод вычисляет функцию Аккермана
+        /// Метод вычисляет функцию Аккермана
         /// </summary>
         /// <param name="n">Число - n</param>
         /// <param name="m">Число - m</param>
@@ -25,7 +24,7 @@ namespace Exercise5
             {
                 return n + 1;
             }
-            else if (m > 0 && n == 0)
+            else if (n == 0)
             {
                 return FunAckerman(m - 1, 1);
             }

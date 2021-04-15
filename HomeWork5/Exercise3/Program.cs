@@ -10,8 +10,6 @@ namespace Exercise3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(NoRepetition("ПППОООГГГООООДДДААА"));
-            Console.WriteLine(NoRepetition("Ххххоооорррооошшшиий деееннннь"));
         }
 
         /// <summary>

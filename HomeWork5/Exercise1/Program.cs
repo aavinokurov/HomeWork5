@@ -10,49 +10,6 @@ namespace Exercise1
     {
         public static void Main(string[] args)
         {
-            int[,] A = FillMatrix(3, 3);
-            Console.WriteLine("Матрицы А: ");
-            PrintMatrix(A);
-
-            int[,] B = FillMatrix(3, 3);
-            Console.WriteLine("Матрицы B: ");
-            PrintMatrix(B);
-
-            Console.WriteLine("Умножение А на 3");
-            PrintMatrix(MultiplyMatrix(A, 3));
-
-            Console.WriteLine("Матрицы А: ");
-            PrintMatrix(A);
-
-            Console.WriteLine("Матрицы B: ");
-            PrintMatrix(B);
-
-            Console.WriteLine("Сложение А и В: ");
-            PrintMatrix(SumMatrix(A, B));
-
-            Console.WriteLine("Матрицы А: ");
-            PrintMatrix(A);
-
-            Console.WriteLine("Матрицы B: ");
-            PrintMatrix(B);
-
-            Console.WriteLine("Вычитание А и В: ");
-            PrintMatrix(SubMatrix(A, B));
-
-            Console.WriteLine("Матрицы А: ");
-            PrintMatrix(A);
-
-            Console.WriteLine("Матрицы B: ");
-            PrintMatrix(B);
-
-            Console.WriteLine("Умножение А на В");
-            PrintMatrix(MultiplyMatrix(A, B));
-
-            Console.WriteLine("Матрицы А: ");
-            PrintMatrix(A);
-
-            Console.WriteLine("Матрицы B: ");
-            PrintMatrix(B);
         }
 
         /// <summary>
