@@ -1,0 +1,7 @@
+C:\C#\HomeWork5\HomeWork5\Exercise5\bin\Debug\Exercise5.exe.config
+C:\C#\HomeWork5\HomeWork5\Exercise5\bin\Debug\Exercise5.exe
+C:\C#\HomeWork5\HomeWork5\Exercise5\bin\Debug\Exercise5.pdb
+C:\C#\HomeWork5\HomeWork5\Exercise5\obj\Debug\Exercise5.csprojAssemblyReference.cache
+C:\C#\HomeWork5\HomeWork5\Exercise5\obj\Debug\Exercise5.csproj.CoreCompileInputs.cache
+C:\C#\HomeWork5\HomeWork5\Exercise5\obj\Debug\Exercise5.exe
+C:\C#\HomeWork5\HomeWork5\Exercise5\obj\Debug\Exercise5.pdb

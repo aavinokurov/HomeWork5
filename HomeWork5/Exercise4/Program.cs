@@ -10,7 +10,6 @@ namespace Exercise4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(IsProgression(new int[] { 1,2,4,8,16}));
         }
 
         /// <summary>
